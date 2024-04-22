@@ -1,0 +1,26 @@
+name: 自动发布为Pages
+on: push
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: 生成静态页面
+    runs-on: ubuntu-latest
+    steps:
+    - name: 读仓库
+      uses: actions/checkout@v4
+
+    - name: 依赖安装
+      run: npm install
+
+    - name: 生成
+      run: hexo generate
+
+    - name: 部署
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: public
+    
