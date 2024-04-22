@@ -16,7 +16,7 @@ jobs:
       run: npm install
 
     - name: 生成
-      run: hexo generate
+      run: ./node_modules/hexo/.bin/hexo generate
 
     - name: 部署
       uses: JamesIves/github-pages-deploy-action@v4
