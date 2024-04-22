@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="zh"><head>
+<title>尝试详细介绍一下我的 BiliTools - Lemony Blog</title>
+<meta charset="UTF-8">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/png" />
+<meta name="description" content="想要介绍一下陪了自己两年多的项目 , 顺便练一下 markdown 语法 阅前提示:   以下内容的措辞可能令人费解, 因为咱在表达方面并没有什么天赋 以下内容不一定正确或者符合规范, 如果有错误欢迎提出w  IntroBiliTools 是我在 2021 年 5 月左右使用 Python 编写的一个用于下载 B 站的各种资源的程序 项目地址 关于版本号因为有前身在, 所以版本号直接从 2 开始又">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尝试详细介绍一下我的 BiliTools">
+<meta property="og:url" content="https://ningmenglemon.github.io/2023/12/29/Try-to-introduce-my-BiliTools/index.html">
+<meta property="og:site_name" content="Lemony Blog">
+<meta property="og:description" content="想要介绍一下陪了自己两年多的项目 , 顺便练一下 markdown 语法 阅前提示:   以下内容的措辞可能令人费解, 因为咱在表达方面并没有什么天赋 以下内容不一定正确或者符合规范, 如果有错误欢迎提出w  IntroBiliTools 是我在 2021 年 5 月左右使用 Python 编写的一个用于下载 B 站的各种资源的程序 项目地址 关于版本号因为有前身在, 所以版本号直接从 2 开始又">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ningmenglemon.github.io/assets/blogs/BiliTools-introduction/plot_shower.png">
+<meta property="og:image" content="https://ningmenglemon.github.io/assets/blogs/BiliTools-introduction/plot_shower_failed.png">
+<meta property="article:published_time" content="2023-12-29T07:36:00.000Z">
+<meta property="article:modified_time" content="2024-02-08T07:15:10.818Z">
+<meta property="article:author" content="LemonyNingmeng">
+<meta property="article:tag" content="Bilibili">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Tkinter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ningmenglemon.github.io/assets/blogs/BiliTools-introduction/plot_shower.png">
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1713758212100">
+
+<link rel="stylesheet" href="/css/style.css?v=1713758212100">
+
+
+
+
+    
+        <link rel="stylesheet" href="/custom.css?v=1713758212100">
+    
+
+
+
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+<script src="/lib/lax.min.js" async></script>
+
+
+<script async src="/js/app.js?v=1713758212100"></script>
+
+ 
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H8H6V4BH7P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H8H6V4BH7P');
+</script>
+
+
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+<meta name="generator" content="Hexo 7.0.0"></head><body class="nexmoe mdui-drawer-body-left"><div id="nexmoe-background"><div class="nexmoe-bg" style="background-image: url(/assets/bg.png)"></div><div class="mdui-appbar mdui-shadow-0"><div class="mdui-toolbar"><a class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: &#039;#drawer&#039;, swipe: true}" title="menu"><i class="mdui-icon nexmoefont icon-menu"></i></a><div class="mdui-toolbar-spacer"></div><a class="mdui-btn mdui-btn-icon" href="/" title="LemonyNingmeng"><img src="/assets/avatar.jpg" alt="LemonyNingmeng"></a></div></div></div><div id="nexmoe-header"><div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="LemonyNingmeng">
+            <img src="/assets/avatar.jpg" alt="LemonyNingmeng" alt="LemonyNingmeng">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>3</div>
+        <div><span>标签</span>10</div>
+        <div><span>分类</span>8</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/friends.html" title="朋友们">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                朋友们
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于我">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于我
+            </div>
+        </a>
+        
+    </div>
+    
+    
+        
+        <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/208878706"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/NingmengLemon/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		>
+	</div>
+</div>
+
+    
+        
+        
+        
+        
+        
+        
+   
+    <div class="nexmoe-copyright">
+        &copy; 2024 LemonyNingmeng
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer --></div><div id="nexmoe-content"><div class="nexmoe-primary"><div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="/assets/bg.png" alt="尝试详细介绍一下我的 BiliTools" loading="lazy">
+            <h1>尝试详细介绍一下我的 BiliTools</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年12月29日</a>
+        
+            <a class="nexmoefont icon-appstore-fill -link" href="/categories/Program/">Program</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <p>想要介绍一下陪了自己两年多的项目 <del>, 顺便练一下 markdown 语法</del></p>
+<p>阅前提示: </p>
+<ol>
+<li>以下内容的措辞可能令人费解, 因为咱在表达方面并没有什么天赋</li>
+<li>以下内容不一定正确或者符合规范, 如果有错误欢迎提出w</li>
+</ol>
+<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>BiliTools 是我在 2021 年 5 月左右使用 Python 编写的一个用于下载 B 站的各种资源的程序</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/NingmengLemon/BiliTools">项目地址</a></p>
+<h2 id="关于版本号"><a href="#关于版本号" class="headerlink" title="关于版本号"></a>关于版本号</h2><p>因为有前身在, 所以版本号直接从 2 开始<br>又因为咱的脑子可能有点抽风, 版本号目前都是 v.2.0.0_Dev{实际更新版本数} 这个样子w<br>目前更新到了 Dev17 的说, 以下内容都是适用于该版本的</p>
+<h2 id="关于前身"><a href="#关于前身" class="headerlink" title="关于前身"></a>关于前身</h2><p>前身是由我编写的 BiliDownloader, 其实就是一个 <a target="_blank" rel="noopener" href="https://github.com/soimort/you-get">you-get</a> 的 GUI 而已<br>附加了一点针对 B 站的功能, 比如弹幕下载和过滤, 版本号为 1</p>
+<h2 id="史山注意"><a href="#史山注意" class="headerlink" title="史山注意"></a>史山注意</h2><p>首先最初在写这个程序的时候我还是个若至, 像各种语言规范什么的都不知道</p>
+<p>你可以在程序中见到:</p>
+<ul>
+<li>随处可见的超长单行</li>
+<li>刁钻古怪的调用链</li>
+<li>(几乎)没有类型标注</li>
+<li>稀少的注释与日志</li>
+<li>一些不知道在干什么但是删掉就会出 Bug 的代码</li>
+<li>各种若至的代码逻辑</li>
+<li>各种花里胡哨但又一堆 Bug 的功能</li>
+</ul>
+<p>然后到现在我稍微懂了那么一点语言规范, 但是先前拉的史已经不好收拾了</p>
+<p>有的时候甚至都不想再继续写, 想 remake 一个新程序出来了</p>
+<p>这个程序伴随着我的进步, 我的程序水平也在逐渐提升（吗？）</p>
+<p><del>所以还是蛮有纪念意义的, 对吧</del></p>
+<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p><a target="_blank" rel="noopener" href="https://github.com/SocialSisterYi/bilibili-API-collect">Bilibili-API-collect</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/m13253/danmaku2ass">danmaku2ass</a></p>
+<h1 id="Quick-Overview"><a href="#Quick-Overview" class="headerlink" title="Quick Overview"></a>Quick Overview</h1><h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>截至 Dev17 的文件结构如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">BiliTools<br>├─ bilitools.py             # 主程序<br>├─ basic_window.py          # 提供了(几乎)所有窗口的基类<br>├─ bezier_curve.py          # (未使用)用于画贝塞尔曲线的一些基本操作<br>├─ configuration.py         # 一些与配置相关的数据与操作<br>├─ custom_widgets.py        # 一些自定义的 tk 组件<br>├─ danmaku2ass.py           # 修改过的 danmaku2ass<br>├─ ffdriver.py              # 用于调用 ffmpeg 的操作<br>├─ imglib.py                # 图标们 (以 base64 方式编码的 png)<br>├─ textlib.py               # Tips 和 About 文本<br>├─ videoshot_handler.py     # 提供了用于处理视频快照的一个类<br>└─ biliapis                 # 封装了一些 B 站的 API, 大多取自 bilibili-api-collect<br>     ├─ __init__.py         # 用于统领起这个 API 库, 定义了一些杂七杂八的操作<br>     ├─ requester.py        # 用于请求的模块<br>     ├─ error.py            # 定义了错误类<br>     ├─ bilicodes.py        # 各种常用的标识码<br>     ├─ wbi.py              # WBI 鉴权<br>     ├─ article.py          # 专栏相关<br>     ├─ audio.py            # 音频相关<br>     ├─ comment.py          # 评论相关<br>     ├─ danmaku.py          # 弹幕相关<br>     ├─ dynamic.py          # 动态相关<br>     ├─ live.py             # 直播相关<br>     ├─ login.py            # 登录相关<br>     ├─ manga.py            # 漫画相关<br>     ├─ media.py            # 影视与番剧相关<br>     ├─ stream.py           # 媒体流相关<br>     ├─ subtitle.py         # 字幕相关<br>     ├─ user.py             # 用户相关<br>     ├─ video.py            # 视频相关<br>     └─ other.py            # 其他 API<br></code></pre></td></tr></table></figure>
+
+<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">tkinter         # GUI 库, Python 应该会自带<br>pillow          # 用于图像处理<br>qrcode          # 用于生成二维码<br>beautifulsoup4  # 用于处理 HTML 和 XML<br>brotli          # 用于解压数据<br>lxml            # bs4 的依赖<br>colorama        # 用于控制台着色<br>pycryptodome    # 用于计算 CorrespondPath<br></code></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://github.com/FFmpeg/FFmpeg">ffmpeg</a> - 通过管道进行调用, 安装即可</p>
+<h1 id="Go-♂-Deeper"><a href="#Go-♂-Deeper" class="headerlink" title="Go ♂ Deeper"></a>Go ♂ Deeper</h1><h2 id="各个类间的继承关系"><a href="#各个类间的继承关系" class="headerlink" title="各个类间的继承关系"></a>各个类间的继承关系</h2><details><summary>点击展开</summary>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">object<br>├─ DownloadManager<br>├─ Window<br>│   ├─ MainWindow<br>│   ├─ BatchWindow<br>│   ├─ InputWindow<br>│   ├─ ConfigWindow<br>│   ├─ AudioWindow<br>│   ├─ CommonVideoWindow<br>│   ├─ CollectWindow<br>│   ├─ LoginWindow<br>│   ├─ PbpShower<br>│   ├─ PartsChooser<br>│   ├─ BlackroomWindow<br>│   ├─ BangumiWindow<br>│   ├─ MangaViewer_Rolling      (未完工)<br>│   ├─ MangaViewer_PageTurning  (未完工)<br>│   ├─ SearchWindow<br>│   ├─ PlotShower<br>│   ├─ VideoShotViewer<br>│   ├─ ArticleWindow    (未完工)<br>│   ├─ ToviewWindow     (未完工)<br>│   └─ Thread_with_gui<br>├─ ToolTip<br>├─ _CustomMsgbox<br>└─ VideoShotHandler<br><br>tk.Frame<br>└─ VerticalScrolledFrame<br>    ├─ _CommonVideoSearchShower<br>    └─ _MediaSearchShower<br><br>ttk.Button<br>└─ ImageButton<br><br>tk.Label<br>└─ ImageLabel<br><br>tk.Toplevel<br>└─ _TipWindow<br><br>Exception<br>└─ BiliError<br><br>threading.Thread<br>└─ _DownloadThread<br><br></code></pre></td></tr></table></figure>
+
+</details>
+
+<h2 id="多线程的处理"><a href="#多线程的处理" class="headerlink" title="多线程的处理"></a>多线程的处理</h2><p>就像其他基于 tk 的应用程序一样, 此程序也以主线程为主</p>
+<p>为了处理那些耗时的任务, 自然是需要用到子线程的, 但是子线程没办法直接修改 tk 窗口中的对象, 否则就会导致<code>thread not in mainloop</code>错误</p>
+<p>于是我在<code>basic_window.py</code>中的<code>Window</code>基类中定义了一个<code>task_queue</code>成员. 这是一个队列, 子线程可以向其中放入无参的函数对象, 而这些函数对象会被位于主线程中的由<code>Tk.after()</code>驱动的一个自动循环执行的函数<code>listen_task</code>自动取出并在主线程中执行. 此时这个函数是在主线程中被执行的, 就可以直接修改窗口中的对象了.</p>
+<p>像这样, 耗时的任务就可以在子线程中执行完毕, 然后把数据装在上述的函数中发送给主线程, 再由这个函数填充到窗口中 (填充的过程其实耗时很少)</p>
+<details><summary> 这个基类的多线程控制部分</summary>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Window</span>(<span class="hljs-title class_ inherited__">object</span>): <span class="hljs-comment"># 程序中所有常规窗口的父类</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, ..., toplevel=<span class="hljs-literal">False</span>, ..., master=<span class="hljs-literal">None</span></span>):<br>        self.task_queue = queue.Queue() <span class="hljs-comment"># 此队列用于储存来自子线程的无参函数对象</span><br>        <span class="hljs-keyword">if</span> toplevel <span class="hljs-keyword">or</span> master:<br>            self.window = tk.Toplevel(master=master)<br>        <span class="hljs-keyword">else</span>:<br>            self.window = tk.Tk()<br>        ...<br>        self.listen_task()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">listen_task</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.task_queue.empty():<br>            func = self.task_queue.get_nowait()<br>            <span class="hljs-keyword">try</span>:<br>                func()<br>            <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>                logging.error(<span class="hljs-string">&#x27;Task Listener Caught an Error: &#x27;</span>+<span class="hljs-built_in">str</span>(e))<br>                <span class="hljs-comment">#raise</span><br>                traceback_info = traceback.format_exc()<br>                <span class="hljs-comment"># print(traceback_info)</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">pass</span><br>                <span class="hljs-comment">#logging.debug(&quot;Call func: &quot;+str(func))</span><br>        <span class="hljs-keyword">if</span> self.task_queue.empty():<br>            self.window.after(<span class="hljs-number">10</span>,self.listen_task)<br>        <span class="hljs-keyword">else</span>:<br>            self.window.after(<span class="hljs-number">1</span>,self.listen_task)<br><br>    ...<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>...</code>是被省略的部分</p>
+</blockquote>
+</details>
+
+<p>我通过这种方式来进行多线程协调.</p>
+<p><del>听上去还是蛮巧妙的?</del></p>
+<p>但是, 把这个方法写在基类中就意味着, 每个窗口创建时都会附带一个队列和一个反复执行的函数. 我不清楚别人是不是这么做的, 反正我当时就这么写了w.<br>现在我对这个做法其实不是很满意, 因为我认为这可能消耗了额外的资源 <del>, 多少有些强迫症了</del></p>
+<h2 id="网络请求的封装"><a href="#网络请求的封装" class="headerlink" title="网络请求的封装"></a>网络请求的封装</h2><p>比较让人难绷的是, 我以前把负责网络请求的模块<code>requester</code>直接放在了<code>biliapis</code>模块中, 我现在觉得这个层次结构不算合理.<br>这也就是说, 要想把<code>biliapis</code>模块用到别的项目中, 底下的<code>requester</code>也会被 copy 一份, 而那个别的项目中可能已经有了别的网络请求模块, 就会造成冗余…<br>然后<code>requester</code>中封装的<code>get</code>与<code>post</code>还对返回的流对象做了处理, 把请求过程中创建的<code>req.Request</code>对象嗯塞了进去, 这是为了方便<code>login</code>模块中对 cookies 的操作. 但也进一步导致了可移植性的下降.</p>
+<details><summary>搓程序时候的趣事(?)</summary>
+
+<p>ChatGPT 一开始说用<code>urllib</code>打开的流中会有<code>request</code>这个成员, 但是其实使用 opener 打开的流中并没有, 当时跟 GPT 杠了挺久, 然后 GPT 改口了ww</p>
+<p>GPT 最终的答复是:</p>
+<blockquote>
+<p><code>opener.open()</code>方法返回的<code>HTTPResponse</code>对象可能不会附带<code>request</code>属性。这是因为<code>opener.open()</code>方法是一个高级接口，它隐藏了底层的请求细节，不直接暴露<code>Request</code>对象。</p>
+</blockquote>
+</details>
+
+<p>以<code>get</code>方法为例, 它的代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@auto_retry(<span class="hljs-params">retry_time</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get</span>(<span class="hljs-params">url, headers=fake_headers_get</span>):<br>    req = request.Request(url, headers=headers)<br>    response = opener.<span class="hljs-built_in">open</span>(req, <span class="hljs-literal">None</span>, timeout=timeout)<br>    response.request = req      <span class="hljs-comment"># 强行塞入 request</span><br>    logging.debug(<span class="hljs-string">&#x27;Get: &#x27;</span>+url)<br>    <span class="hljs-keyword">return</span> response<br></code></pre></td></tr></table></figure>
+<details><summary>我猜你想吐槽...</summary>
+
+<blockquote>
+<p>啊你这个请求怎么没有用<code>with</code>啊<br>这个函数怎么直接就把流对象传回去了啊</p>
+</blockquote>
+<p>emm来看其他部分是怎么用这个函数的:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_content_bytes</span>(<span class="hljs-params">url, headers=fake_headers_get, update_cookie=<span class="hljs-literal">True</span></span>):<br>    <span class="hljs-comment"># 取名有问题, 请自动忽略 content 这个词</span><br>    <span class="hljs-keyword">with</span> get(url, headers=headers) <span class="hljs-keyword">as</span> response:<br>        <span class="hljs-keyword">if</span> cookies <span class="hljs-keyword">and</span> update_cookie:<br>            cookies.make_cookies(response, response.request)<br>        <span class="hljs-keyword">return</span> read_and_decode_data(response)<br>        <span class="hljs-comment"># 取名也有问题, decode 应该改成 decompress</span><br></code></pre></td></tr></table></figure>
+<p><del>我其实不是很确定用自动重试装饰器来修饰这个函数是不是正确的选择</del></p>
+</details>
+
+
+<p>总之就是很不满意 (叉腰)</p>
+<h2 id="多窗口之间的协作"><a href="#多窗口之间的协作" class="headerlink" title="多窗口之间的协作"></a>多窗口之间的协作</h2><p>首先需要提醒的是, 下文提到的<code>Window</code>(定义在<code>basic_window.py</code>中)继承自<code>object</code>, <code>tk.Tk</code>或者<code>tk.Toplevel</code>对象则被存放在<code>Window.window</code>处</p>
+<p><del>很令人费解是吧? 我也想问问以前的我为什么要这么写</del></p>
+<p>我一般会在窗口类(一般继承自<code>Window</code>)的<code>__init__()</code>方法的末尾加上<code>self.window.wait_window(self.window)</code>来使外界在执行实例化窗口类的操作时停在这一步, 直到窗口被释放 (<code>self.window.destroy()</code>被执行)<br>官方的模块 <code>tk.messagebox</code> 和 <code>tk.filedialog</code> 中的操作也有类似的逻辑</p>
+<blockquote>
+<p>当时的我在<code>Window</code>类中直接把上面那个”停下”的操作封装成了<code>self.mainloop()</code>这个方法, 极具迷惑性.<br>注意与下文提到的<code>mainloop</code>做区别.<br><del>越写就越想穿越回去抽自己几个大嘴巴子</del></p>
+</blockquote>
+<p>对于大部分不需要在打开窗口的同时打开另一个窗口的窗口是这样.<br>至于为什么不用<code>Tk.mainloop()</code>来等待窗口, 是因为我发现如果这样做的话, 关闭窗口时会产生一些莫名其妙的问题<br>按照我的理解, <code>Tk.mainloop()</code>会使整个 tk 的事件循环阻塞主线程; 如果通过<code>Tk.destroy()</code>将其打破, tk 会认为整个程序应该结束了, 但其实没有, 这只是一个窗口关闭了而已.</p>
+<p>于是我的整个程序里一个<code>Tk.mainloop()</code>都没用过w</p>
+<p>而除了下载窗口外的所有子窗口(<code>Toplevel</code>)的父窗口都是主窗口(<code>Tk</code>), 当把主窗口关掉的时候其余窗口就会被自动地关闭.<br>至于下载窗口, 它拥有特殊的内部逻辑, 并没有使用等待窗口这一机制.</p>
+<h2 id="下载器的内部逻辑"><a href="#下载器的内部逻辑" class="headerlink" title="下载器的内部逻辑"></a>下载器的内部逻辑</h2><p>这一部分最初于 2021 年 11 月左右完成 (根据写的日志来看)<br><del>当时这部分是在自习课上想出来的, 笔记本应该还能找到, 但是放在家里了w</del></p>
+<p><strong>这一部分是线程安全问题的重灾区.</strong><br>中途曾尝试修复过一次, 给涉及到多线程操作的几个列表添加了线程锁. 但是偏偏漏掉了最核心的用于存储原始数据的列表和另外三个用于存放任务状态的列表.<br>我最终发现这个遗留问题的时候已经为时已晚. 各个线程锁在之前尝试修复的时候搅成了一坨, 就连继续往上拉史都做不到了, 哪怕只加一个线程锁都会在莫名其妙的地方锁死.<br><del>当然如果花时间的话其实还是可以修的, 需要把之前修的地方推掉重来</del></p>
+<h3 id="显示机制"><a href="#显示机制" class="headerlink" title="显示机制"></a>显示机制</h3><p>并不是通过修改窗口属性将构建好的窗口显示或隐藏, 而是到了需要显示的时候才开始构建</p>
+<p>当 用于接受下载任务的<code>task_receiver()</code>被调用 且 这个函数运行于主线程中 时, <code>show()</code>方法会被自动调用<br><code>show()</code>方法会执行构建 GUI 的代码, 而<code>hide()</code>方法则会直接销毁整个窗口<br>由于涉及到 GUI 操作, 上述两个方法都必须在主线程中运行</p>
+<p>窗口中显示的的任务信息存储在<code>table_display_list</code>这个多维列表中, 每次刷新显示的信息时<code>auto_refresh_table</code>这个方法会将它的内容展示到 GUI 中</p>
+<blockquote>
+<p><code>auto_refresh_table</code>也是借助<code>Tk.after()</code>来进行自动循环的</p>
+</blockquote>
+<p>下载器刷新 GUI 的流程:</p>
+<ol>
+<li>刷新任务列表<ul>
+<li>如果任务数没有变动, 那么直接修改对应项的值</li>
+<li>如果任务数有变动:<ol>
+<li>先记录哪些项被选中了</li>
+<li>然后删除列表框中的所有项</li>
+<li>将新的信息填充进去</li>
+<li>复现先前选中的项</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>更新统计信息</li>
+<li>准备下一次自动刷新</li>
+</ol>
+<h3 id="数据存储与任务管理"><a href="#数据存储与任务管理" class="headerlink" title="数据存储与任务管理"></a>数据存储与任务管理</h3><p>最核心的内容是<code>data_objs</code>这个成员, 它存储着传入<code>task_receiver</code>的原始数据<br>下载的各个步骤都会读取</p>
+<p>有三个索引列表与它相关</p>
+<ul>
+<li><code>failed_indexes</code></li>
+<li><code>running_indexes</code></li>
+<li><code>done_indexes</code></li>
+</ul>
+<p>存放的内容是任务对应的数据在<code>data_objs</code>中的索引<br><small>也是在<code>table_display_list</code>中的索引</small></p>
+<blockquote>
+<p>我认为下载器中的最关键的一个量就是这个索引<br>在特化的任务函数中第一个显式参数就是<code>index</code>, 说的就是这个索引</p>
+</blockquote>
+<p>感觉逼逼叨叨这么多还不如放张图, 等我…</p>
+<details><summary>试着用了 mermaid 语法</summary>
+
+<pre class="mermaid">
+flowchart TB
+
+    F(下载管理器实例化) -- 启动 --> auto_thread_starter
+    
+    subgraph auto_thread_starter
+        direction TB
+    
+        b{检查 task_queue}
+        b -- 有任务 --> c[将任务取出, 作为子线程开始运行]
+        b -- 无任务 --> b
+        c --> b
+    end
+    
+    c -- 启动 --> task_itself
+    
+    subgraph task_itself
+        direction TB
+        g[将参数中的 index 放入 running_indexes]
+        g --> h[任务计数器+1]
+        h --> i[进行任务内容]
+        i --> j[将 index 从 running_indexes 中移除]
+        j --> k{任务是否成功}
+        k -- 是 --> l[将 index 放入 done_indexes]
+        k -- 否 --> m[将 index 放入 failed_indexes]
+        l --> n(任务计数器-1)
+        m --> n
+    end
+
+</pre>
+
+</details>
+
+<p>如果要添加任务, 则遵循下面的流程:</p>
+<details><summary>另一个流程图</summary>
+
+<pre class="mermaid">
+flowchart TB
+    direction TB
+    A(添加任务) --> B[获取到下载所需的数据]
+    B --> C[将任务数据放入 data_objs]
+    C --> D[
+        将对应的任务函数和任务在 data_objs 中的索引和数据包装成 lambda
+        然后放入 task_queue
+        ]
+    D --> E[
+        在 table_display_list 中创建位置
+        <small>任务在两个列表中的索引保持一致</small>
+        ]
+</pre>
+
+</details>
+
+<h3 id="下载进度的保存与读取"><a href="#下载进度的保存与读取" class="headerlink" title="下载进度的保存与读取"></a>下载进度的保存与读取</h3><h4 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h4><p>程序会遍历整个<code>data_objs</code>, 从中筛选出还没有成功的任务组成一个列表<br>然后将这个列表作为一个临时字典的<code>objs</code>键对应的值<br><code>table_display_list</code>中对应的项也会被组成列表, 作为这个临时字典的<code>displaylist</code>键对应的值<br>最后程序会将这个字典保存为 json 文件</p>
+<p>上述操作被封装为了<code>save_progress</code>这个方法<br>这个方法在每次有任务开始或结束的时候都会被调用</p>
+<h4 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h4><p>首先程序会读取保存的 json 文件, 然后遍历其中的<code>objs</code>列表, 按照与<code>task_receiver</code>中类似的方法逐个添加任务<br>在这个过程中, 除了任务状态文本会被改成<code>待处理</code>外, 其余内容将会与保存前保持一致</p>
+<p>上述操作被封装为了<code>load_progress</code>这个方法<br>这个方法在程序启动的时候经过用户确认后会被调用</p>
+<h2 id="Tkinter-中的滚动页面的实现"><a href="#Tkinter-中的滚动页面的实现" class="headerlink" title="Tkinter 中的滚动页面的实现"></a>Tkinter 中的滚动页面的实现</h2><p>我最开始定义了一个继承自<code>tk.Frame</code>的滚动框架<code>VerticalScrolledFrame</code></p>
+<p>在用它展示条漫时我发现它的最大滚动范围在 31000px 左右, 这可能是<code>canvas</code>的极限</p>
+<p>层次结构是:<br>frame &gt; canvas &gt; frame &gt; 页面元素</p>
+<pre class="mermaid"> 
+
+flowchart LR
+
+subgraph top_frame
+    subgraph canvas
+        subgraph bottom_frame
+            page_content
+        end
+    end
+    scrollbar[
+        S
+        c
+        r
+        o
+        l
+        l
+        b
+        a
+        r]
+end
+
+</pre>
+
+<p>emm大概长这样, 可能有些夸张了</p>
+<p>缺点是需要手动给页面元素绑定鼠标滚动等事件<br>纵向滚动条用于控制页面的滚动, 实质上是在控制<code>canvas</code>中的里层<code>frame</code>的上下移动</p>
+<p>这个框架被设计成宽度由内容物的宽度决定, 高度由用户定义<br>被用在了<code>SearchWindow</code>的<code>Notebook</code>的单个分页中</p>
+<p>如果需要左右滚动的话也同理了<br>加上一些自动调用的代码应该就能实现像橱窗那样的循环展示效果 <del>(虽然我没亲自写过)</del></p>
+<h2 id="互动视频剧情图展示器的实现"><a href="#互动视频剧情图展示器的实现" class="headerlink" title="互动视频剧情图展示器的实现"></a>互动视频剧情图展示器的实现</h2><p>整个剧情图的展示基于<code>tk.Canvas</code>画布, 在画布右侧和下方分别加上了纵向滚动条和横向滚动条</p>
+<p>最核心的内容是<code>self.plots</code>与<code>self.explored_plot_ids</code><br><code>self.plots</code>是一个装着(装着字典的列表)的列表, 分层存储着请求到的原始数据<br>节点们组成类似于有向图的结构, 像下面这样<br><del>一开始我其实是把它当作树来处理的</del></p>
+<pre class="mermaid">
+flowchart TB
+    subgraph self.plots
+        subgraph layer_1
+            plot_1
+        end
+        subgraph layer_2
+            plot_2
+            plot_3
+            plot_4
+        end
+        subgraph layer_3
+            plot_5
+            plot_6
+        end
+    end
+
+    plot_1 --> plot_2
+    plot_1 --> plot_3
+    plot_1 --> plot_4
+    
+    plot_2 --> plot_5
+    plot_2 --> plot_6
+    
+    plot_3 --> plot_5
+    
+    plot_4 --> plot_5
+    
+    plot_6 --> plot_2
+</pre>
+<p><small><del>我超这个<code>mermaid</code>的牛魔绘图啊</del></small><br>分层是为了更有层次地绘图</p>
+<p>各个节点之间的连接由每个节点数据中包含的多个<code>jump_edge_id</code>确定</p>
+<p>为了方便画图, 引入了<code>self.explored_plot_ids</code>, <code>self.plot_coors</code><br><code>self.explored_plot_ids</code>是一个字典, 以<code>节点id: (节点所在的层的索引, 节点在层中的索引)</code>的形式存储节点id到节点数据的映射<br><code>self.plot_coors</code>是一个字典, 以<code>节点id: (节点在画布中的x坐标, y坐标, 节点块的宽, 节点块的高)</code>的形式存储节点id到节点块在画布中的位置的映射</p>
+<p>为了方便下载, 引入了<code>self.cid_map</code>和<code>self.avid_map</code>这两个字典<br>它们分别存储节点id到cid的映射和cid到avid的映射</p>
+<h3 id="节点的探索"><a href="#节点的探索" class="headerlink" title="节点的探索"></a>节点的探索</h3><p>互动视频有两个重要的id, 剧情图id<code>graph_id</code> 和 节点id<code>edge_id</code><br>剧情图id代表这个互动视频, 节点id代表它的节点</p>
+<blockquote>
+<p>剧情图id可以通过向<a href="api.bilibili.com/x/player/v2">这个接口</a>提交互动视频的<code>cid</code>和(<code>avid</code>或<code>bvid</code>)得到</p>
+</blockquote>
+<blockquote>
+<p>每个节点id都有对应的<code>cid</code>, 配合互动视频的<code>bvid</code>或<code>avid</code>可以取到视频的流<br>初始节点的<code>cid</code>就是这个互动视频的<code>cid</code><br><small>其实互动视频的节点就是另一种形式的视频分P</small></p>
+</blockquote>
+<blockquote>
+<p>对接口的节点id参数传入<code>0</code>就可以获得初始节点的数据</p>
+</blockquote>
+<p>借由初始节点的数据, 可以得到它可能跳转到的节点们的id<br>再请求这些节点id的数据, 获得它们可能跳转到的节点们的id<br>就这么一直下去, 直到不再有新的节点id出现</p>
+<blockquote>
+<p>如果一个节点没有跳转到的节点, 就说明它是终止节点</p>
+</blockquote>
+<p>将每一轮上述操作获得的数据按轮分层 <small>(初始节点单独一层)</small>, 就完成了节点探索的操作</p>
+<h3 id="节点的绘制"><a href="#节点的绘制" class="headerlink" title="节点的绘制"></a>节点的绘制</h3><details><summary>先看效果()</summary>
+
+<p>目标视频: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Pt4y1S7Wb/">电棍家中的惨案</a></p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/assets/blogs/BiliTools-introduction/plot_shower.png" alt="Plot_Shower" data-caption="Plot_Shower" loading="lazy"></p>
+<p>起始节点被涂成淡红色, 终止节点被涂成淡绿色</p>
+</details>
+
+<p>遍历整个<code>self.plots</code>, 为每个节点绘制块, 然后为每个节点绘制跳转箭头</p>
+<ul>
+<li>如果节点跳转到的是下一层的节点, 那么直接连接即可 <small><del>原本想用贝塞尔曲线来连接的, 然后寄了</del></small></li>
+<li>否则则将箭头拉到画布顶部或底部, 绕到目标块所在层的后面进行连接(跳连)</li>
+</ul>
+<p>设置了一些偏移值来确保箭头的线不会重合.<br><small>(但是对于一些关系复杂的互动视频, 上述策略会造成跳连的箭头太多, 导致绘图非常混乱, 完全没法读)</small></p>
+<details><summary>翻车了</summary>
+
+<p>目标视频: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1eq4y1e7QF/">收养澄闪</a></p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/assets/blogs/BiliTools-introduction/plot_shower_failed.png" alt="Plot_Shower_failed" data-caption="Plot_Shower_failed" loading="lazy"></p>
+<p><del>视频做得太好导致的</del></p>
+</details>
+
+<p>以后可能会做一个生成<code>mermaid</code>流程图的功能? <del>(画饼ing)</del></p>
+<p>总之这玩意真就图一乐</p>
+<h3 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h3><h4 id="点击"><a href="#点击" class="headerlink" title="点击"></a>点击</h4><p>我想实现<code>当点击一个节点块的时候, 打开侧边栏并在其中展示这个节点的信息</code>这个交互逻辑</p>
+<p>首先来实现点击绘图对象罢.<br><small><code>tk.Canvas</code>其实是可以为其中的绘图对象绑定点击事件的, 但我当时不知道w</small><br>我给整个 canvas 绑定了一个点击事件, 根据坐标来判断被点击的节点块</p>
+<p>所谓的侧边栏, 是另一个隐藏在右边的框架<br>当它要显示的时候, canvas 的宽度会减小侧边栏的宽度那么多, 然后侧边栏框架出现</p>
+<p>值得注意的是, 我已经发现了超出 canvas 范围的的强制滚动会使我的点击事件错位这个问题, 我会在后续将它修复</p>
+<p><del>简称: 下次一定</del></p>
+<h4 id="拖动"><a href="#拖动" class="headerlink" title="拖动"></a>拖动</h4><p><small>写到这里的时候发现我之前写的拖动操作寄了</small></p>
+<p><del>那么今天的内容就到这里了让我们下次再见</del></p>
+<h1 id="Defects"><a href="#Defects" class="headerlink" title="Defects"></a>Defects</h1><h2 id="线程安全问题"><a href="#线程安全问题" class="headerlink" title="线程安全问题"></a>线程安全问题</h2><p>这个问题在 <a href="#%E4%B8%8B%E8%BD%BD%E5%99%A8%E7%9A%84%E5%86%85%E9%83%A8%E9%80%BB%E8%BE%91">下载器的内部逻辑</a> 这部分有提到</p>
+<p>大概就是, 如果有多个线程<em>同时</em>操作一个<em>线程不安全</em>的对象, 就可能会出问题<br>Python 中的字典是线程安全的, 但是列表不是</p>
+<p>为了避免这个问题, 可以:</p>
+<ul>
+<li>给操作对象加上线程锁, 使同一时间只能有一个线程访问它</li>
+<li>换用线程安全的对象来存储信息</li>
+</ul>
+<p>上文提到的<code>修复</code>, 便是给对象加锁<br><del>结果加成了一坨 (恼)</del></p>
+<h2 id="默认参数评估问题"><a href="#默认参数评估问题" class="headerlink" title="默认参数评估问题"></a>默认参数评估问题</h2><p>这个问题潜伏了很久, 直到在我使用<code>custom_widgets</code>中的<code>run_with_gui</code>这个函数的时候才被发现</p>
+<details><summary>发现的过程</summary>
+
+<p>程序第一次调用<code>run_with_gui</code>时, <code>is_progress_hook_available</code>这个参数被传入了<code>True</code>.<br>这会使这个函数传入的<code>func</code>参数(这是一个函数)在后续的过程中被<em>额外传入</em>一个叫做<code>progress_hook</code>的字典, <code>func</code>函数可以通过修改这个字典来汇报任务的进度</p>
+<p>问题就在于额外传入这个操作上.<br>在老版本的程序中, 程序在准备阶段会直接修改先前传入的<code>kwargs</code>, 以便后续方便地使用<code>func(**kwargs)</code>来传入参数.<br>而我将<code>kwargs</code>的默认参数设定为了<code>&#123;&#125;</code>, 而不是<code>None</code>.</p>
+<p>第二次调用的时候到了, 这次<code>is_progress_hook_available</code>这个参数被传入了默认的<code>False</code>(这倒不是问题的所在), 按照程序的设计, <code>kwargs</code>不会被修改. 比较巧合的是, 第一次传入的函数只有<code>progress_hook</code>这一个参数, 而第二次的函数则是无参的, 两次调用的<code>kwargs</code>这个参数都没有被指定.<br>这就导致了后文所说的默认参数评估的问题.</p>
+<blockquote>
+<p><font color=red face=consolas>TypeError: self.func() got an unexpected keyword argument ‘progress_hook’</font></p>
+</blockquote>
+<p><del>解释器: Aughhhhhhhhh</del></p>
+</details>
+
+<p>虽然我自主地修复了这个问题, 并且知道它导致的问题是前一次调用影响到了后一次, 但以我的水平无法解释它的成因</p>
+<p>有请: GPT 先生!</p>
+<blockquote>
+<p>在Python中，函数的默认参数如果设置为字典（或其他可变数据类型，如列表、集合等），会有一个潜在的陷阱：如果默认参数在函数内部被修改了，那么这个修改会在未来的函数调用中持续存在。这是因为默认参数只会在函数定义时被评估一次，不是每次调用时都评估。这意味着，如果你修改了默认参数的内容，那么下一次调用函数时，默认参数的值不再是定义函数时指定的原始值。<br>这个行为对于不可变的默认值（例如None、整数、字符串等）通常不会导致问题，因为它们不会被函数调用所改变。然而，对于可变的默认值（例如字典、列表等），这种行为可能导致意外的副作用，因为如果函数内部修改了这些可变对象，这些修改会影响到下一次函数调用时这些默认参数的状态。</p>
+</blockquote>
+<details><summary>ChatGPT 举的例子</summary>
+
+<p>以一个列表作为默认参数的函数为例，来展示这个评估过程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">append_to_list</span>(<span class="hljs-params">value, my_list=[]</span>):  <span class="hljs-comment"># 默认参数在这里被评估一次</span><br>    my_list.append(value)<br>    <span class="hljs-keyword">return</span> my_list<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>my_list=[]</code> 是一个默认参数。这个默认参数的列表对象在函数定义时创建，并且只创建一次。如果你在函数内部修改了 <code>my_list</code>，比如通过调用 <code>append_to_list</code> 函数，那么你实际上是在修改这个单一的、在函数定义时创建的列表对象。这样，下一次调用 <code>append_to_list</code> 时，你将看到上一次调用的结果仍然保留在列表中，因为它是同一个列表对象。</p>
+<p>为了避免这种情况，你应该使用一个不可变的默认值，比如 <code>None</code>，然后在函数内部检查它，并在需要时创建一个新的列表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">append_to_list</span>(<span class="hljs-params">value, my_list=<span class="hljs-literal">None</span></span>):<br>    <span class="hljs-keyword">if</span> my_list <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>        my_list = []  <span class="hljs-comment"># 在这里为每次调用创建一个新的列表</span><br>    my_list.append(value)<br>    <span class="hljs-keyword">return</span> my_list<br></code></pre></td></tr></table></figure>
+
+<p>在这个修正后的版本中，每次调用 <code>append_to_list</code> 时，如果没有提供 <code>my_list</code> 参数，就会创建一个新的空列表。这样，每次函数调用都是独立的，不会有意外的共享状态。</p>
+</details>
+
+<p>BiliTools 中的很多函数都被我像这样写了, 比如这个:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">_video_download_thread</span>(<span class="hljs-params">self, ..., subtitle_regulation=config[<span class="hljs-string">&#x27;download&#x27;</span>][<span class="hljs-string">&#x27;video&#x27;</span>][<span class="hljs-string">&#x27;subtitle_lang_regulation&#x27;</span>], ...</span>):<br>    ...<br></code></pre></td></tr></table></figure>
+
+<p>这些问题目前还没有得到修复…<br><del>绝对不是因为我忘了! 我回头就去修!</del></p>
+<h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><blockquote>
+<p>未完待续…</p>
+</blockquote>
+
+    <hr />
+<p><small>- 到底了噢 -</small></p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>LemonyNingmeng<br>
+        <strong>本文链接：</strong><a href="https://ningmenglemon.github.io/2023/12/29/Try-to-introduce-my-BiliTools/" title="https:&#x2F;&#x2F;ningmenglemon.github.io&#x2F;2023&#x2F;12&#x2F;29&#x2F;Try-to-introduce-my-BiliTools&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;ningmenglemon.github.io&#x2F;2023&#x2F;12&#x2F;29&#x2F;Try-to-introduce-my-BiliTools&#x2F;</a><br>
+        
+            本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Bilibili/" rel="tag">Bilibili</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Python/" rel="tag">Python</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Tkinter/" rel="tag">Tkinter</a>
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1713758212068"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          <p><small>假装有评论区</small></p>
+
+      </div>
+  
+</div></div><div class="nexmoe-post-right">    <div class="nexmoe-fixed">
+        <div class="nexmoe-tool">
+
+            
+
+            
+            
+            <button class="mdui-fab catalog" style="overflow:unset;">
+                <i class="nexmoefont icon-i-catalog"></i>
+                <div class="nexmoe-toc">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intro"><span class="toc-number">1.</span> <span class="toc-text">Intro</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E5%8F%B7"><span class="toc-number">1.1.</span> <span class="toc-text">关于版本号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%89%8D%E8%BA%AB"><span class="toc-number">1.2.</span> <span class="toc-text">关于前身</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%B2%E5%B1%B1%E6%B3%A8%E6%84%8F"><span class="toc-number">1.3.</span> <span class="toc-text">史山注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E8%B0%A2"><span class="toc-number">1.4.</span> <span class="toc-text">感谢</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Quick-Overview"><span class="toc-number">2.</span> <span class="toc-text">Quick Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96"><span class="toc-number">2.2.</span> <span class="toc-text">依赖</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Go-%E2%99%82-Deeper"><span class="toc-number">3.</span> <span class="toc-text">Go ♂ Deeper</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E7%B1%BB%E9%97%B4%E7%9A%84%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB"><span class="toc-number">3.1.</span> <span class="toc-text">各个类间的继承关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">多线程的处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%9A%84%E5%B0%81%E8%A3%85"><span class="toc-number">3.3.</span> <span class="toc-text">网络请求的封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%AA%97%E5%8F%A3%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8D%8F%E4%BD%9C"><span class="toc-number">3.4.</span> <span class="toc-text">多窗口之间的协作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%99%A8%E7%9A%84%E5%86%85%E9%83%A8%E9%80%BB%E8%BE%91"><span class="toc-number">3.5.</span> <span class="toc-text">下载器的内部逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%9C%BA%E5%88%B6"><span class="toc-number">3.5.1.</span> <span class="toc-text">显示机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86"><span class="toc-number">3.5.2.</span> <span class="toc-text">数据存储与任务管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E8%BF%9B%E5%BA%A6%E7%9A%84%E4%BF%9D%E5%AD%98%E4%B8%8E%E8%AF%BB%E5%8F%96"><span class="toc-number">3.5.3.</span> <span class="toc-text">下载进度的保存与读取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98"><span class="toc-number">3.5.3.1.</span> <span class="toc-text">保存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96"><span class="toc-number">3.5.3.2.</span> <span class="toc-text">读取</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tkinter-%E4%B8%AD%E7%9A%84%E6%BB%9A%E5%8A%A8%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.6.</span> <span class="toc-text">Tkinter 中的滚动页面的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%92%E5%8A%A8%E8%A7%86%E9%A2%91%E5%89%A7%E6%83%85%E5%9B%BE%E5%B1%95%E7%A4%BA%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.7.</span> <span class="toc-text">互动视频剧情图展示器的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E7%9A%84%E6%8E%A2%E7%B4%A2"><span class="toc-number">3.7.1.</span> <span class="toc-text">节点的探索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E7%9A%84%E7%BB%98%E5%88%B6"><span class="toc-number">3.7.2.</span> <span class="toc-text">节点的绘制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92"><span class="toc-number">3.7.3.</span> <span class="toc-text">交互</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%82%B9%E5%87%BB"><span class="toc-number">3.7.3.1.</span> <span class="toc-text">点击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%96%E5%8A%A8"><span class="toc-number">3.7.3.2.</span> <span class="toc-text">拖动</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Defects"><span class="toc-number">4.</span> <span class="toc-text">Defects</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><span class="toc-number">4.1.</span> <span class="toc-text">线程安全问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E8%AF%84%E4%BC%B0%E9%97%AE%E9%A2%98"><span class="toc-number">4.2.</span> <span class="toc-text">默认参数评估问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98"><span class="toc-number">4.3.</span> <span class="toc-text">其他问题</span></a></li></ol></li></ol>
+                </div>
+            </button>
+            
+
+            
+
+            <a href="#nexmoe-content" class="backtop toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+        </div>
+    </div>
+</div></div><div id="nexmoe-footer"><!--!--></div><div id="nexmoe-search-space"><div class="search-container"><div class="search-header"><div class="search-input-container"><input class="search-input" type="text" placeholder="搜索" onInput="sinput();"></div><a class="search-close" onclick="sclose();">×</a></div><div class="search-body"></div></div></div><div></div></body></html>

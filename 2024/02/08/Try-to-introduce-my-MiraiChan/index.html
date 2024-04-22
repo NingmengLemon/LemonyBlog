@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="zh"><head>
+<title>尝试介绍一下我的 Mirai 酱 - Lemony Blog</title>
+<meta charset="UTF-8">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+<link rel="shortcut icon" href="/assets/favicon.png" type="image/png" />
+<meta name="description" content="首先很抱歉先前那篇讲 BiliTools 的文章不更了，问就是太烂了讲不动一点这次我想来讲一下我的 QQ 机器人，Mirai 酱 事先声明，本文中的信息并不可靠，请不要盲目相信…… Mirai 酱的故事最初想要做一个自己的 QQ 机器人，应该是在某位群友在群里询问了关于机器人的事之后。后来他拉着他的机器人凯尔希进了群，不过不知为何最后却似了。 最初的 Mirai 酱翻了下我的程序存档，Mirai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尝试介绍一下我的 Mirai 酱">
+<meta property="og:url" content="https://ningmenglemon.github.io/2024/02/08/Try-to-introduce-my-MiraiChan/index.html">
+<meta property="og:site_name" content="Lemony Blog">
+<meta property="og:description" content="首先很抱歉先前那篇讲 BiliTools 的文章不更了，问就是太烂了讲不动一点这次我想来讲一下我的 QQ 机器人，Mirai 酱 事先声明，本文中的信息并不可靠，请不要盲目相信…… Mirai 酱的故事最初想要做一个自己的 QQ 机器人，应该是在某位群友在群里询问了关于机器人的事之后。后来他拉着他的机器人凯尔希进了群，不过不知为何最后却似了。 最初的 Mirai 酱翻了下我的程序存档，Mirai">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-08T02:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-05T11:09:43.571Z">
+<meta property="article:author" content="LemonyNingmeng">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="onebot">
+<meta property="article:tag" content="QQ">
+<meta property="article:tag" content="shamrock">
+<meta name="twitter:card" content="summary">
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1713758212090">
+
+<link rel="stylesheet" href="/css/style.css?v=1713758212090">
+
+
+
+
+    
+        <link rel="stylesheet" href="/custom.css?v=1713758212090">
+    
+
+
+
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+<script src="/lib/lax.min.js" async></script>
+
+
+<script async src="/js/app.js?v=1713758212090"></script>
+
+ 
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H8H6V4BH7P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H8H6V4BH7P');
+</script>
+
+
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+<meta name="generator" content="Hexo 7.0.0"></head><body class="nexmoe mdui-drawer-body-left"><div id="nexmoe-background"><div class="nexmoe-bg" style="background-image: url(/assets/bg.png)"></div><div class="mdui-appbar mdui-shadow-0"><div class="mdui-toolbar"><a class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: &#039;#drawer&#039;, swipe: true}" title="menu"><i class="mdui-icon nexmoefont icon-menu"></i></a><div class="mdui-toolbar-spacer"></div><a class="mdui-btn mdui-btn-icon" href="/" title="LemonyNingmeng"><img src="/assets/avatar.jpg" alt="LemonyNingmeng"></a></div></div></div><div id="nexmoe-header"><div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="LemonyNingmeng">
+            <img src="/assets/avatar.jpg" alt="LemonyNingmeng" alt="LemonyNingmeng">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>3</div>
+        <div><span>标签</span>10</div>
+        <div><span>分类</span>8</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/friends.html" title="朋友们">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                朋友们
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于我">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于我
+            </div>
+        </a>
+        
+    </div>
+    
+    
+        
+        <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/208878706"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/NingmengLemon/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		>
+	</div>
+</div>
+
+    
+        
+        
+        
+        
+        
+        
+   
+    <div class="nexmoe-copyright">
+        &copy; 2024 LemonyNingmeng
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer --></div><div id="nexmoe-content"><div class="nexmoe-primary"><div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="/assets/bg.png" alt="尝试介绍一下我的 Mirai 酱" loading="lazy">
+            <h1>尝试介绍一下我的 Mirai 酱</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2024年02月08日</a>
+        
+            <a class="nexmoefont icon-appstore-fill -link" href="/categories/Program/">Program</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <p><small><del>首先很抱歉先前那篇讲 BiliTools 的文章不更了，问就是太烂了讲不动一点</small></del><br>这次我想来讲一下我的 QQ 机器人，Mirai 酱</p>
+<p>事先声明，本文中的信息并不可靠，请不要盲目相信……</p>
+<h1 id="Mirai-酱的故事"><a href="#Mirai-酱的故事" class="headerlink" title="Mirai 酱的故事"></a>Mirai 酱的故事</h1><p>最初想要做一个自己的 QQ 机器人，应该是在某位群友在群里询问了关于机器人的事之后。<br><del>后来他拉着他的机器人<code>凯尔希</code>进了群，不过不知为何最后却似了。</del></p>
+<h2 id="最初的-Mirai-酱"><a href="#最初的-Mirai-酱" class="headerlink" title="最初的 Mirai 酱"></a>最初的 Mirai 酱</h2><p>翻了下我的程序存档，Mirai 酱最早是在 2022 年 4 月左右被我编写出来的，当时基于<a target="_blank" rel="noopener" href="https://github.com/GraiaProject/Ariadne"><code>Ariadne</code></a>和<a target="_blank" rel="noopener" href="https://github.com/mamoe/mirai"><code>mirai</code></a>。  </p>
+<blockquote>
+<p>Mirai 酱之所以叫 Mirai 酱，正是因为她最开始基于的框架是<code>mirai</code> <del>（绝对不是因为我是个起名废物qwq）</del>  </p>
+</blockquote>
+<p>这是 Mirai 酱的第一代，拥有 B站动态转发、随机涩图、天气查询、每日抽签、疫情查询（在之后移除） 功能。（其实当然可以写更多，只是我没点子了）  </p>
+<p>后来不知道什么时候，<code>mirai</code>框架似乎似了，Mirai 酱也被我忘记了一段时间。直到……<br>我找到了<code>go-cqhttp</code>这个框架。</p>
+<blockquote>
+<p>在找引用链接的时候我发现<code>mirai</code>框架原来还活着，而且社区也跟进了签名服务器插件的开发（但框架换了就是换了，也没有换回去这种说法了）</p>
+</blockquote>
+<h2 id="重生的-Mirai-酱"><a href="#重生的-Mirai-酱" class="headerlink" title="重生的 Mirai 酱"></a>重生的 Mirai 酱</h2><p>Mirai 酱第二代的完成大约是在 2023 年 6 月 12 日左右，基于<a target="_blank" rel="noopener" href="https://github.com/FengLiuFeseliud/pycqBot"><code>pycqBot</code></a>和<a target="_blank" rel="noopener" href="https://github.com/Mrs4s/go-cqhttp"><code>go-cqhttp</code></a>。在 8 月 24 日左右追加了<code>unidbg-fetch-qsign</code>来进行签名认证。<br>这一代的 Mirai 酱功能没有增加，甚至还减少了一个天气查询功能。<del>（天气查询真没人用罢，交互还难写）</del><br><del>不过群友们在 Mirai 酱复活赛打赢之后还是很高兴，甚至发起了电</del></p>
+<h2 id="现在的-Mirai-酱"><a href="#现在的-Mirai-酱" class="headerlink" title="现在的 Mirai 酱"></a>现在的 Mirai 酱</h2><p>Mirai 酱第三代的大致完成大致是在 2024 年 2 月 8 日零点左右<br>这一代的 Mirai 酱新增了方舟模拟抽卡的插件，并且每个插件都可以单独为某个群开启或关闭。  </p>
+<p>这次的框架迁移是因为<code>go-cqhttp</code>的停止维护（详见：<a target="_blank" rel="noopener" href="https://github.com/Mrs4s/go-cqhttp/issues/2471">QQBot的未来以及迁移建议</a>）。尽管 Mirai 酱还没因为这个出现什么问题，我还是根据他们的建议将 Mirai 酱迁移到了<a target="_blank" rel="noopener" href="https://github.com/whitechi73/OpenShamrock"><code>OpenShamrock</code></a>框架。  </p>
+<p>然后我就发现虽然<code>go-cqhttp</code>和<code>shamrock</code>都是遵循<a target="_blank" rel="noopener" href="https://github.com/botuniverse/onebot"><code>onebot</code></a>标准的，但是<code>pycqBot</code>在与<code>shamrock</code>交互的时候始终有莫名其妙的问题。于是我就仿照<code>pycqBot</code>专门为<code>shamrock</code>写了一个简易框架（有直接使用<code>pycqBot</code>中的一些代码，比如<code>cqcode</code>的实现），已经能够满足 Mirai 酱的需求了。不过因为实在是太简易了，以至于插件写起来与<code>pycqBot</code>相比有亿点麻烦（恼）<br>emm 就当作是 Python 练习了罢（？）<br><del>：你说得对，但是这就是重复造轮子的沙贝操作（全恼）</del></p>
+<p><code>shamrock</code>被我部署在了我的小主机上的 PVE 里，依靠<code>BlissOS</code>运行。（参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Mj411e7V9/">PVE下安装BlissOS11</a>）  </p>
+<blockquote>
+<p>因为 tx 的作品实在是太“精致”了，为了 QQ 能够比较稳定地运行，我不得不给 BlissOS  开了 6GB 的 RAM</p>
+</blockquote>
+<p>主要的 Python 程序被我部署在了 PVE 中的另一台 Debian 12 上 <del>目前挂了一天一夜还没有出问题</del>  </p>
+<h1 id="关于简易框架"><a href="#关于简易框架" class="headerlink" title="关于简易框架"></a>关于简易框架</h1><blockquote>
+<p>十分甚至九分感谢<code>pycqBot</code>项目，提供了思路和具体实现供我<del>照搬</del>参考  </p>
+</blockquote>
+<p><del><small>所以说这个简易框架，应该算是<code>mini-pycqBot</code>？（大雾）</small></del></p>
+<h2 id="通信方式"><a href="#通信方式" class="headerlink" title="通信方式"></a>通信方式</h2><p>和<code>pycqBot</code>一样，都是</p>
+<ul>
+<li>用<code>websocket</code>接收框架的事件上报</li>
+<li>用<code>http</code>发送指令到框架</li>
+</ul>
+<p>额外支持了cookies的长期储存，但是保存方式是pickle（逃</p>
+<p><del>其实也尝试着写了json保存，但是不行，B站的接口不认。大概是我漏了什么细节罢</del></p>
+<h2 id="各部分关系"><a href="#各部分关系" class="headerlink" title="各部分关系"></a>各部分关系</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">lemonyBot:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">__init__.py</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">base.py:</span>          <span class="hljs-comment"># 通信基础</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">SocketBase</span>    <span class="hljs-comment"># 提供 WebSocket 通信方法</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">HttpBase</span>      <span class="hljs-comment"># 提供 HTTP 通信方法</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">apps.py:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">SocketApp</span>     <span class="hljs-comment"># 封装了消息上报的接收（基本抄自 pycqBot）</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">HttpApp</span>       <span class="hljs-comment"># 封装了接口（基本抄自 shamrock 文档）</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">bot.py:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">Bot</span>           <span class="hljs-comment"># 将 ws 和 http 部分结合到一起</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">objects.py:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">Plugin</span>        <span class="hljs-comment"># 插件对象的父类</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">cqcode.py</span>         <span class="hljs-comment"># 照搬自 pycqBot</span><br></code></pre></td></tr></table></figure>
+
+<pre class="mermaid">
+flowchart LR
+SocketBase --> SocketApp --> Bot
+HttpBase --> HttpApp --> Bot
+Plugin
+</pre>
+
+<h2 id="插件系统的实现"><a href="#插件系统的实现" class="headerlink" title="插件系统的实现"></a>插件系统的实现</h2><p>使用<code>Bot.load_plugin()</code>加载一个插件实例之后，这个实例会被保存在<code>Bot._plugins</code>列表中  </p>
+<p>每当<code>SocketApp</code>收到消息上报时，它会根据消息的类型挨个去尝试调用插件们的对应方法，如果插件定义了对应的方法，它就会把消息包传给这个方法。<br>（消息类型的名字的生成照抄了<code>pycqBot</code>）</p>
+<p>当插件想要发送指令时，它只需要调用自身对应名字的方法即可。这些方法在<code>Plugin</code>父类中被批量预先定义（且分为普通和异步版本）<br>这些方法对<code>Bot.call_api()</code>进行了封装，这样他们就只需要传入参数，而不用传入方法名了</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p><small><del>老实说，真的会有人来用这个框架吗……</del></small><br>就当是写给自己看的了，免得以后想搓新插件的时候又忘了</p>
+<h3 id="简单的使用"><a href="#简单的使用" class="headerlink" title="简单的使用"></a>简单的使用</h3><p>入口模块至少应该长这个样子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 框架主体应当被最先导入</span><br><span class="hljs-keyword">import</span> lemonyBot<br><span class="hljs-comment"># 导入各个插件类</span><br><span class="hljs-keyword">from</span> plugins.MyPlugin <span class="hljs-keyword">import</span> MyPlugin<br><br><span class="hljs-comment"># 实例化Bot，记得改成自己的参数</span><br>bot = lemonyBot.Bot(**&#123;<br>    <span class="hljs-string">&quot;ws_host&quot;</span>: <span class="hljs-string">&quot;127.0.0.1:1145&quot;</span>,<br>    <span class="hljs-string">&quot;http_host&quot;</span>: <span class="hljs-string">&quot;127.0.0.1:1919&quot;</span>,<br>    <span class="hljs-string">&quot;authkey&quot;</span>: <span class="hljs-string">&quot;aughhhhhhhhhhhhhh&quot;</span>,<br>&#125;)<br><span class="hljs-comment"># 设置管理员QQ号（选）</span><br>bot.set_config(admins=[<span class="hljs-number">114514</span>])<br><span class="hljs-comment"># 挨个加载插件（的实例）</span><br>bot.load_plugin(MyPlugin(bot))<br><span class="hljs-comment"># 启动</span><br>bot.start()<br></code></pre></td></tr></table></figure>
+<p><del>连我自己都觉得麻烦了</del><br>往后可能会优化一下导入方法，写成像<code>pycqBot</code>那样的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">bot.plugin_load([<br>    <span class="hljs-string">&quot;MyPlugin&quot;</span><br>    ])<br></code></pre></td></tr></table></figure>
+<p>真的方便吧我靠 <del>再看看我这个简直就是原神</del></p>
+<blockquote>
+<p>上面设置的管理员不同于群里的管理员，而是 Bot 的管理员。<br>插件可以通过这个来校验一些只有 Bot 主人才能有的权限。<br>（当然一个插件里都没写的话这个东西也就没用了）</p>
+</blockquote>
+<h3 id="插件开发"><a href="#插件开发" class="headerlink" title="插件开发"></a>插件开发</h3><p>一个插件至少应该长这个样子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 导入必需的模板</span><br><span class="hljs-keyword">from</span> lemonyBot <span class="hljs-keyword">import</span> Plugin, cqcode, Bot<br><br><span class="hljs-comment"># 定义插件类，父类必须为 Plugin</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyPlugin</span>(<span class="hljs-title class_ inherited__">Plugin</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, bot: Bot</span>):<br>        <span class="hljs-built_in">super</span>().__init__(bot)<br>        self.bot: Bot<br>        <span class="hljs-comment"># 在这后面加一些自己的初始化操作比如加载涩图数据</span><br>    <br>    <span class="hljs-comment"># 定义用于接受上报事件的方法，参数为一个 dict</span><br>    <span class="hljs-comment"># 在 bot 收到这个类型的消息时会被自动调用</span><br>    <span class="hljs-comment"># event 的详细内容自己去查 shamrock 之类的文档</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">message_group_normal</span>(<span class="hljs-params">self, event: <span class="hljs-built_in">dict</span></span>):<br>        <span class="hljs-comment"># 这里是对消息的过滤，emm就是设定回复触发的条件</span><br>        <span class="hljs-comment"># 按照自己的需求来，自由度是真的大罢</span><br>        <span class="hljs-keyword">if</span> event[<span class="hljs-string">&quot;message&quot;</span>].lower().strip() == <span class="hljs-string">&quot;ciallo&quot;</span>:<br>            <span class="hljs-comment"># 调用预定义的方法，这里是普通版，没有返回值</span><br>            <span class="hljs-comment"># 要检查消息的发送结果请使用异步版方法</span><br>            <span class="hljs-comment"># ↑ 比如：self.send_group_msg_async()</span><br>            <span class="hljs-comment"># 异步版的返回值自己去查对应文档（这里是shamrock）</span><br>            <span class="hljs-comment"># 方法只接受一个字典参数，以后可能会加一个 **kwargs 调用方法</span><br>            self.send_group_msg_func(<br>                <span class="hljs-comment"># 这个字典的键值就是接口的参数</span><br>                <span class="hljs-comment"># 具体参数需要你去查 shamrock 之类的文档</span><br>                &#123;<br>                    <span class="hljs-string">&quot;group_id&quot;</span>: event[<span class="hljs-string">&quot;group_id&quot;</span>],<br>                    <span class="hljs-comment"># 使用 cqcode 添加各种特殊消息 比如回复、图片</span><br>                    <span class="hljs-comment"># cqcode 模块的使用方法详见 pycqBot 的文档</span><br>                    <span class="hljs-comment"># 关于 cqcode 可以去看 go-cqhttp 文档</span><br>                    <span class="hljs-comment"># cqcode 是字符串，可以直接与正文拼接</span><br>                    <span class="hljs-string">&quot;message&quot;</span>: cqcode.reply(msg_id=event[<span class="hljs-string">&quot;message_id&quot;</span>])<br>                    + <span class="hljs-string">&quot;Ciallo～(∠・ω&lt; )⌒☆&quot;</span>,<br>                    <span class="hljs-string">&quot;auto_escape&quot;</span>: <span class="hljs-literal">False</span>,<br>                &#125;<br>            )<br>        <span class="hljs-comment"># 达到了对群里发出的每一条 ciallo 都回复一个 Ciallo～(∠・ω&lt; )⌒☆ 的效果</span><br></code></pre></td></tr></table></figure>
+<p>普通版方法和异步版方法的名字只差一个后缀，是<code>_func</code>还是<code>_async</code><br>可以使用<code>self.bot.add_task()</code>来借助简易框架内置的给<code>aiohttp</code>用的事件循环运行自己的协程<br>（异步自己去学，我讲不清楚的w）</p>
+<p>通过<code>self.admins</code>可以得到 Bot 的管理员们的QQ，以此来实现鉴权之类的操作<br>插件有需要网络请求的部分可以搞依赖注入，来使用<code>self.bot.request</code>这个写好的网络请求</p>
+<p>可供参考的资料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://whitechi73.github.io/OpenShamrock/">山姆摇滚文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.go-cqhttp.org/cqcode/">go-cqhttp文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://fengliufeseliud.github.io/pycqBot/">pycqBot文档</a></li>
+</ul>
+<h2 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h2><p>如你所见，这个简易框架：</p>
+<ol>
+<li>没有定义消息类之类的简化处理流程之类的东西，而是直接让开发者处理事件字典</li>
+<li>没有把接口的参数之类的写到程序里，而是要你自己去查文档</li>
+<li>没有快捷的回复功能，必须自己手动生成<code>cqcode</code>来加到回复消息里（应该算是第一条的一部分）</li>
+<li>没有像<a target="_blank" rel="noopener" href="https://graia.readthedocs.io/ariadne/feature/base-parser/">这个</a>一样的方便的消息筛选系统、鉴权系统，全都要开发者自己写</li>
+<li>没有统一的插件启用禁用系统，各个插件是割裂的</li>
+<li>还有很多……</li>
+</ol>
+<p><del>笑嘻了，我消息筛选用正则表达式用到似</del></p>
+<p>总之就是非常的简陋就是了，你要什么得自己来，一点都不开箱即用。</p>
+<p>不过反正都是自用的就是了 <small><del>我怎么写也没人能管我（小声）</del></small></p>
+<h1 id="关于-Mirai-酱的插件们"><a href="#关于-Mirai-酱的插件们" class="headerlink" title="关于 Mirai 酱的插件们"></a>关于 Mirai 酱的插件们</h1><h2 id="涩图插件"><a href="#涩图插件" class="headerlink" title="涩图插件"></a>涩图插件</h2><p>插件名：EroPicSender</p>
+<h3 id="运行逻辑"><a href="#运行逻辑" class="headerlink" title="运行逻辑"></a>运行逻辑</h3><pre class="mermaid">
+flowchart TB
+
+askforsetu[/群友找Mirai酱要涩图/] --> checkperm
+checkperm{检查插件开关} -- 关 -->reject
+reject[拒绝]
+checkperm -- 开 --> checkcd
+checkcd{检查冷却时间} -- 到了 --> getsetudata
+checkcd -- 没到 --> reject
+getsetudata[获得涩图数据] --> download[下载涩图本体] --> checktag
+checktag{检查涩图标签\n（R18之类的）} -- 能发 --> sendwithimg[发送图片] --> withdraw
+sendwithimg --> checkassets
+checktag -- 不能发 --> sendwithoutimg[仅发送文字描述] --> checkassets
+withdraw[等待1分钟后撤回涩图]
+
+cache[(涩图缓存)] -.-> getsetudata
+checkassets{检查涩图缓存} -- 不足 --> 获取一包新的涩图 -.-> cache
+checkassets -- 充足 --> over[什么都不做]
+checkassets -.- cache
+
+init[/插件初始化/] --> loadcache
+loadcache[从文件加载保存的缓存] --> checkassets
+loadcache -.-> cache
+
+</pre> 
+
+<p>（尝试用 mermaid 做了流程图，但是一坨） </p>
+<ul>
+<li>管理员可以无视插件开关要涩图  </li>
+<li>涩图下载失败也会发送提示</li>
+<li>涩图发送失败会改为仅发送文字描述  </li>
+<li>涩图发送成功后会在两分钟后撤回</li>
+<li>程序退出时会保存缓存到文件</li>
+</ul>
+<h3 id="图源"><a href="#图源" class="headerlink" title="图源"></a>图源</h3><p>来自 <a target="_blank" rel="noopener" href="https://api.lolicon.app/">Lolicon API</a>，非常感谢它的开发者</p>
+<h2 id="明日方舟抽卡模拟"><a href="#明日方舟抽卡模拟" class="headerlink" title="明日方舟抽卡模拟"></a>明日方舟抽卡模拟</h2><p>插件名：ArknightsGacha</p>
+<h3 id="数据获取"><a href="#数据获取" class="headerlink" title="数据获取"></a>数据获取</h3><p>干员列表来自 <a target="_blank" rel="noopener" href="https://wiki.biligame.com/arknights/%E5%B9%B2%E5%91%98%E6%95%B0%E6%8D%AE%E8%A1%A8">BiliGame Wiki</a><br>把获取的网页用 xpath 一翻，数据就来了</p>
+<blockquote>
+<p>什么？为什么不是 PRTS ？</p>
+</blockquote>
+<p><del>因为 B 站他直接把数据丢网页源代码里了，大好人属于是</del></p>
+<p>根据干员的获取途径生成中坚和常驻两个池子<br><del>限定池子理论上也能做，但是群友急了于是先这样了</del></p>
+<p>能够通过指令让 Mirai 酱立即更新干员数据</p>
+<h3 id="运行逻辑-1"><a href="#运行逻辑-1" class="headerlink" title="运行逻辑"></a>运行逻辑</h3><p>插件初始化时会从本地加载保存的干员数据<br>加载完毕后生成两个字典（代表中坚和标准两个池子），键为星级，值为对应的干员列表  </p>
+<p>每次请求抽卡时定义一个初始概率表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">&#123;<br>    <span class="hljs-number">3</span>: <span class="hljs-number">0.4</span>,<br>    <span class="hljs-number">4</span>: <span class="hljs-number">0.5</span>,<br>    <span class="hljs-number">5</span>: <span class="hljs-number">0.08</span>,<br>    <span class="hljs-number">6</span>: <span class="hljs-number">0.02</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>很明显 键是星级，值是概率  </p>
+<p>抽卡会传入一个<code>combo</code>值，代表连续抽了多少抽没出 6 星。这个值可以经由群员的QQ号查到，用以实现 “若连续 50 发未出 6 星，下次 6 星概率增加 2%，直到第 100 发时必出 6 星” 的设定<br>抽卡函数会根据上述逻辑对初始概率表进行修改，然后通过带权重的随机来确定抽到的星级，最后用初始化时生成的字典来得到具体抽到的干员数据，返回给负责交互的部分</p>
+<p><code>combo</code>值由负责交互的那一坨保管，每当抽到 6 星时这个值就重设为<code>0</code><br>在收到干员数据之后负责交互的那部分便生成文本，回复给群友</p>
+<h2 id="B-站动态转发"><a href="#B-站动态转发" class="headerlink" title="B 站动态转发"></a>B 站动态转发</h2><p>插件名：BiliDynamicForwarder</p>
+<p>需要配合<code>BiliLogin</code>插件食用</p>
+<h3 id="运行逻辑-2"><a href="#运行逻辑-2" class="headerlink" title="运行逻辑"></a>运行逻辑</h3><p>每 5 分钟请求一遍监听对象们的历史动态，与上一次请求的数据比对，找出新发布的进行发送<br><del>↑ emm我的“找出新发布的动态”这个部分似乎还有点问题，时不时就会把历史的某一条动态刨出来发了</del></p>
+<p>如果动态内容命中了黑关键词，那么它将不会被发送；<br>但是如果同时又命中了白关键词，那么它还是会被发送。</p>
+<p>这个插件的交互部分主要就是设置监听对象，逻辑还挺简单的，难写的原因是没有现成的鉴权和指令系统<br>其余部分都是主动发送了没什么好说的  </p>
+<p>自动维护一个用 B 站 uid 查昵称的字典，用来方便添加移除监听对象</p>
+<h3 id="关于接口"><a href="#关于接口" class="headerlink" title="关于接口"></a>关于接口</h3><p>来自易姐的 <a target="_blank" rel="noopener" href="https://socialsisteryi.github.io/bilibili-API-collect/"><code>bilibili-API-collect</code></a> ，非常感谢 ta<br>函数封装由我实现，弄得一坨</p>
+<p><del>emm注意到动态获取接口已经有了新的、更优雅的替代方案，但是我懒</del></p>
+<h2 id="萌属性抽取"><a href="#萌属性抽取" class="headerlink" title="萌属性抽取"></a>萌属性抽取</h2><p>插件名：MoeAttriLottery</p>
+<p>之前写好这个插件的时候还有些沾沾自喜，然后看了别人家的机器人才发现，这其实是几年前就玩过时了的东西w<br><del>果然是你能想得到的东西，别人早就想到了</del></p>
+<h3 id="数据源"><a href="#数据源" class="headerlink" title="数据源"></a>数据源</h3><p>由我整理自萌娘百科-<a target="_blank" rel="noopener" href="https://zh.moegirl.org.cn/%E8%90%8C%E5%B1%9E%E6%80%A7">萌属性</a></p>
+<h3 id="运行逻辑-3"><a href="#运行逻辑-3" class="headerlink" title="运行逻辑"></a>运行逻辑</h3><p>非常简单的带权重的随机抽取而已，一天仅能抽一次</p>
+<p>拥有权重机制，比如我能把年龄属性中的“萝莉”调到<code>10</code>，其他全为<code>1</code>😋  </p>
+<p>拥有主副属性机制，当抽到的主属性在副属性中有键时，会再抽一个副属性出来<br>比如抽到了渐变色瞳，还可以再抽到一个红-&gt;蓝渐变的细分支  </p>
+<h2 id="B站登录"><a href="#B站登录" class="headerlink" title="B站登录"></a>B站登录</h2><p>插件名：BiliLogin</p>
+<p>因为最近B站对获取动态的接口加了风控，非登录情况下的请求难度大幅提升，于是加紧写了这个插件用于登录</p>
+<p>登录后cookies会自动留在bot框架中，B站动态转发插件可以直接使用</p>
+<p>仅能通过管理员私聊进行扫码登录，不知道时间久了会不会出问题</p>
+<hr>
+<p>emm 大概就是这样，以后应该还会继续维护 Mirai 酱的，有种养女儿的快感 😋</p>
+
+    <hr />
+<p><small>- 到底了噢 -</small></p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>LemonyNingmeng<br>
+        <strong>本文链接：</strong><a href="https://ningmenglemon.github.io/2024/02/08/Try-to-introduce-my-MiraiChan/" title="https:&#x2F;&#x2F;ningmenglemon.github.io&#x2F;2024&#x2F;02&#x2F;08&#x2F;Try-to-introduce-my-MiraiChan&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;ningmenglemon.github.io&#x2F;2024&#x2F;02&#x2F;08&#x2F;Try-to-introduce-my-MiraiChan&#x2F;</a><br>
+        
+            本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Python/" rel="tag">Python</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/QQ/" rel="tag">QQ</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/onebot/" rel="tag">onebot</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/shamrock/" rel="tag">shamrock</a>
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1713758212067"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          <p><small>假装有评论区</small></p>
+
+      </div>
+  
+</div></div><div class="nexmoe-post-right">    <div class="nexmoe-fixed">
+        <div class="nexmoe-tool">
+
+            
+
+            
+            
+            <button class="mdui-fab catalog" style="overflow:unset;">
+                <i class="nexmoefont icon-i-catalog"></i>
+                <div class="nexmoe-toc">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mirai-%E9%85%B1%E7%9A%84%E6%95%85%E4%BA%8B"><span class="toc-number">1.</span> <span class="toc-text">Mirai 酱的故事</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%88%9D%E7%9A%84-Mirai-%E9%85%B1"><span class="toc-number">1.1.</span> <span class="toc-text">最初的 Mirai 酱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E7%94%9F%E7%9A%84-Mirai-%E9%85%B1"><span class="toc-number">1.2.</span> <span class="toc-text">重生的 Mirai 酱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%B0%E5%9C%A8%E7%9A%84-Mirai-%E9%85%B1"><span class="toc-number">1.3.</span> <span class="toc-text">现在的 Mirai 酱</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E7%AE%80%E6%98%93%E6%A1%86%E6%9E%B6"><span class="toc-number">2.</span> <span class="toc-text">关于简易框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">通信方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E9%83%A8%E5%88%86%E5%85%B3%E7%B3%BB"><span class="toc-number">2.2.</span> <span class="toc-text">各部分关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.3.</span> <span class="toc-text">插件系统的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="toc-number">2.4.</span> <span class="toc-text">如何使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.4.1.</span> <span class="toc-text">简单的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91"><span class="toc-number">2.4.2.</span> <span class="toc-text">插件开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%BA%E9%99%B7"><span class="toc-number">2.5.</span> <span class="toc-text">缺陷</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-Mirai-%E9%85%B1%E7%9A%84%E6%8F%92%E4%BB%B6%E4%BB%AC"><span class="toc-number">3.</span> <span class="toc-text">关于 Mirai 酱的插件们</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%A9%E5%9B%BE%E6%8F%92%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">涩图插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%80%BB%E8%BE%91"><span class="toc-number">3.1.1.</span> <span class="toc-text">运行逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E6%BA%90"><span class="toc-number">3.1.2.</span> <span class="toc-text">图源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%E6%8A%BD%E5%8D%A1%E6%A8%A1%E6%8B%9F"><span class="toc-number">3.2.</span> <span class="toc-text">明日方舟抽卡模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96"><span class="toc-number">3.2.1.</span> <span class="toc-text">数据获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%80%BB%E8%BE%91-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">运行逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-%E7%AB%99%E5%8A%A8%E6%80%81%E8%BD%AC%E5%8F%91"><span class="toc-number">3.3.</span> <span class="toc-text">B 站动态转发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%80%BB%E8%BE%91-2"><span class="toc-number">3.3.1.</span> <span class="toc-text">运行逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%8E%A5%E5%8F%A3"><span class="toc-number">3.3.2.</span> <span class="toc-text">关于接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%90%8C%E5%B1%9E%E6%80%A7%E6%8A%BD%E5%8F%96"><span class="toc-number">3.4.</span> <span class="toc-text">萌属性抽取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="toc-number">3.4.1.</span> <span class="toc-text">数据源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%80%BB%E8%BE%91-3"><span class="toc-number">3.4.2.</span> <span class="toc-text">运行逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B%E7%AB%99%E7%99%BB%E5%BD%95"><span class="toc-number">3.5.</span> <span class="toc-text">B站登录</span></a></li></ol></li></ol>
+                </div>
+            </button>
+            
+
+            
+
+            <a href="#nexmoe-content" class="backtop toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+        </div>
+    </div>
+</div></div><div id="nexmoe-footer"><!--!--></div><div id="nexmoe-search-space"><div class="search-container"><div class="search-header"><div class="search-input-container"><input class="search-input" type="text" placeholder="搜索" onInput="sinput();"></div><a class="search-close" onclick="sclose();">×</a></div><div class="search-body"></div></div></div><div></div></body></html>
