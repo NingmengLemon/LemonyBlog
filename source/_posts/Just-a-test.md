@@ -9,5 +9,4 @@ Hello bro, this is just a test page.
 
 If set properly, a sticker will be displayed below.  
 
-![Sticker](/assets/blogs/Just-a-test/Cheshire_cat.png)
-
+![a sticker](/assets/blogs/Just-a-test/Cheshire_cat.png)
