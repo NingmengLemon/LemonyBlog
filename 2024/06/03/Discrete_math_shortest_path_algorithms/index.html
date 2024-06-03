@@ -6,17 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
 <link rel="shortcut icon" href="/assets/favicon.png" type="image/png" />
-<meta name="description" content="离散数学-图的最短路径算法此文档用于离散数学课上的主题展示 Dijkstra 算法&#x2F;ˈdaɪkstrə&#x2F; 介绍Dijkstra 算法是一种在加权图中寻找节点间最短路径的算法，加权图可以表示道路网络等。该算法由计算机科学家 Edsger W. Dijkstra 于 1956 年提出，并于三年后发表。它及其变体被称为均匀成本搜索，是更普遍的最佳优先搜索思想的一个实例。   从 Ro">
+<meta name="description" content="离散数学-图的最短路径此文档用于离散数学课上的主题展示 ，不是我的博客 Dijkstra 算法来跟我一起念：&#x2F;ˈdaɪkstrə&#x2F; 介绍Dijkstra 算法是一种在加权图中寻找节点间最短路径的算法，加权图可以表示道路网络等。该算法由计算机科学家 Edsger W. Dijkstra 于 1956 年提出，并于三年后发表。它及其变体被称为均匀成本搜索，是更普遍的最佳优先搜索思想的一个实例。   从">
 <meta property="og:type" content="article">
 <meta property="og:title" content="离散数学-图的最短路径">
 <meta property="og:url" content="https://ningmenglemon.github.io/2024/06/03/Discrete_math_shortest_path_algorithms/index.html">
 <meta property="og:site_name" content="Lemony Blog">
-<meta property="og:description" content="离散数学-图的最短路径算法此文档用于离散数学课上的主题展示 Dijkstra 算法&#x2F;ˈdaɪkstrə&#x2F; 介绍Dijkstra 算法是一种在加权图中寻找节点间最短路径的算法，加权图可以表示道路网络等。该算法由计算机科学家 Edsger W. Dijkstra 于 1956 年提出，并于三年后发表。它及其变体被称为均匀成本搜索，是更普遍的最佳优先搜索思想的一个实例。   从 Ro">
+<meta property="og:description" content="离散数学-图的最短路径此文档用于离散数学课上的主题展示 ，不是我的博客 Dijkstra 算法来跟我一起念：&#x2F;ˈdaɪkstrə&#x2F; 介绍Dijkstra 算法是一种在加权图中寻找节点间最短路径的算法，加权图可以表示道路网络等。该算法由计算机科学家 Edsger W. Dijkstra 于 1956 年提出，并于三年后发表。它及其变体被称为均匀成本搜索，是更普遍的最佳优先搜索思想的一个实例。   从">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ningmenglemon.github.io/assets/blogs/discrete_math_graphs_algos/Dijkstra_Animation.gif">
 <meta property="og:image" content="https://ningmenglemon.github.io/assets/blogs/discrete_math_graphs_algos/Bellman%E2%80%93Ford_algorithm_example.gif">
 <meta property="article:published_time" content="2024-06-03T22:07:00.000Z">
-<meta property="article:modified_time" content="2024-06-03T14:10:47.811Z">
+<meta property="article:modified_time" content="2024-06-03T15:10:10.808Z">
 <meta property="article:author" content="LemonyNingmeng">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="Discrete Math">
@@ -27,15 +27,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1717423858981">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1717427418780">
 
-<link rel="stylesheet" href="/css/style.css?v=1717423858981">
+<link rel="stylesheet" href="/css/style.css?v=1717427418780">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1717423858981">
+        <link rel="stylesheet" href="/custom.css?v=1717427418780">
     
 
 
@@ -45,7 +45,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1717423858982"></script>
+<script async src="/js/app.js?v=1717427418780"></script>
 
  
 
@@ -177,11 +177,11 @@
     
 </div>
 
-    <h1 id="离散数学-图的最短路径算法"><a href="#离散数学-图的最短路径算法" class="headerlink" title="离散数学-图的最短路径算法"></a>离散数学-图的最短路径算法</h1><p><em>此文档用于离散数学课上的主题展示</em></p>
-<h2 id="Dijkstra-算法"><a href="#Dijkstra-算法" class="headerlink" title="Dijkstra 算法"></a>Dijkstra 算法</h2><p>&#x2F;ˈdaɪkstrə&#x2F;</p>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Dijkstra 算法是一种在加权图中寻找节点间最短路径的算法，加权图可以表示道路网络等。该算法由计算机科学家 Edsger W. Dijkstra 于 1956 年提出，并于三年后发表。它及其变体被称为均匀成本搜索，是更普遍的最佳优先搜索思想的一个实例。</p>
+    <h1 id="离散数学-图的最短路径"><a href="#离散数学-图的最短路径" class="headerlink" title="离散数学-图的最短路径"></a>离散数学-图的最短路径</h1><p><em>此文档用于离散数学课上的主题展示 <del>，不是我的博客</del></em></p>
+<h2 id="Dijkstra-算法"><a href="#Dijkstra-算法" class="headerlink" title="Dijkstra 算法"></a>Dijkstra 算法</h2><p><del>来跟我一起念：</del><code>/ˈdaɪkstrə/</code></p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Dijkstra 算法是一种在加权图中寻找节点间最短路径的算法，加权图可以表示道路网络等。该算法由计算机科学家 Edsger W. Dijkstra 于 1956 年提出，并于三年后发表。它及其变体被称为<em>均匀成本搜索</em>，是更普遍的最佳优先搜索思想的一个实例。</p>
 <blockquote>
-<p> <em>从 Rotterdam 到 Groningen 的最短路线是什么？我花了大概 20 分钟时间设计了这个寻找最短路径的算法。一天早上我正和我年轻的未婚妻在 Amsterdam 逛街，觉得有点累了，我们就坐在咖啡厅的露台上喝了一杯咖啡，我在想是否能够解决这个问题，然后，我设计出了这个最短路径算法。我说过，这是一个 20 分钟的设计。事实上，三年之后的 1959 年它才被发布，现在看来依然很不错，其原因之一是我当时设计的时候没有纸和笔，从而不得不极力避免所有可避免的复杂性。最终，令我惊讶的是，这个算法成为了我成名的基石之一。</em></p>
+<p> <em>从 Rotterdam <small>(荷兰, 鹿特丹)</small> 到 Groningen <small>(荷兰, 格罗宁根)</small> 的最短路线是什么？我花了大概 20 分钟时间设计了这个寻找最短路径的算法。一天早上我正和我年轻的未婚妻在 Amsterdam 逛街，觉得有点累了，我们就坐在咖啡厅的露台上喝了一杯咖啡，我在想是否能够解决这个问题，然后，我设计出了这个最短路径算法。我说过，这是一个 20 分钟的设计。事实上，三年之后的 1959 年它才被发布，现在看来依然很不错，其原因之一是我当时设计的时候没有纸和笔，从而不得不极力避免所有可避免的复杂性。最终，令我惊讶的是，这个算法成为了我成名的基石之一。</em></p>
 <p> <em>——引自<a target="_blank" rel="noopener" href="https://dl.acm.org/doi/pdf/10.1145/1787234.1787249">《An interview with Edsger W. Dijkstra》</a></em></p>
 </blockquote>
 <p>属于动态规划、贪心算法</p>
@@ -196,6 +196,7 @@
 </blockquote>
 <h3 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h3><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/assets/blogs/discrete_math_graphs_algos/Dijkstra_Animation.gif" alt="File:Dijkstra Animation.gif" data-caption="File:Dijkstra Animation.gif" loading="lazy"></p>
 <p><small><del>维基上扒的图不知道能不能载出来</del></small></p>
+<p>有一个更加直观的<a target="_blank" rel="noopener" href="https://visualgo.net/zh/sssp">在线演示网站</a>，进入后左下角选择<code>戴克斯特拉算法</code>即可</p>
 <p>从起始节点开始，逐步扩展到所有节点，每次选择当前已知的最短路径进行扩展。</p>
 <h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>选定一个<em>起始节点</em></p>
 <p>创建一个列表 来记录距离：</p>
@@ -206,13 +207,14 @@
 </li>
 </ul>
 <blockquote>
+<p>Tips!</p>
 <p>Python 中的无穷：<code>float(&quot;inf&quot;)</code></p>
 <p>（正负号加在<code>inf</code>前面）</p>
 </blockquote>
 <p>创建一个列表 来记录有哪些节点尚未被访问</p>
 <p>创建一个优先队列 来存储节点及其当前已知的最短距离（开始时包含起始节点）</p>
 <p>创建一个列表 用来记录<em>前驱节点</em>用来回溯路径</p>
-<h4 id="开始喵"><a href="#开始喵" class="headerlink" title="开始喵"></a>开始喵</h4><h5 id="循环，直到-优先队列为空-or-已找到目标节点的最短路径"><a href="#循环，直到-优先队列为空-or-已找到目标节点的最短路径" class="headerlink" title="循环，直到 (优先队列为空) or (已找到目标节点的最短路径)"></a>循环，直到 (优先队列为空) or (已找到目标节点的最短路径)</h5><p>从优先队列中取出距离最小的节点（<em>当前节点</em>）</p>
+<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><p>从优先队列中取出距离最小的节点（<em>当前节点</em>）</p>
 <p>对当前节点的所有邻接节点：</p>
 <ul>
 <li>计算从起始节点经过当前节点到达该邻接节点的距离（<em>候选距离</em>）</li>
@@ -220,6 +222,7 @@
 <li>如果需要回溯路径，则在更新距离的同时，记录每个节点的前驱节点</li>
 </ul>
 <p>将<em>当前节点</em>标记为已处理</p>
+<p>直到 (优先队列为空) or (已找到目标节点的最短路径)</p>
 <h4 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h4><p>从目标节点回溯到起始节点，得到完整的最短路径</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>嗯 这部分交给 <em>S.K.Y.</em> 罢（</p>
 <h2 id="Bellman-Ford-算法"><a href="#Bellman-Ford-算法" class="headerlink" title="Bellman-Ford 算法"></a>Bellman-Ford 算法</h2><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p>Bellman-Ford 算法比 Dijkstra 算法慢一些，但通用性更强。</p>
@@ -231,6 +234,7 @@
 <h3 id="适用条件-1"><a href="#适用条件-1" class="headerlink" title="适用条件"></a>适用条件</h3><p>比 Dijkstra 多支持了负数权值</p>
 <h3 id="内容-1"><a href="#内容-1" class="headerlink" title="内容"></a>内容</h3><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/assets/blogs/discrete_math_graphs_algos/Bellman%E2%80%93Ford_algorithm_example.gif" alt="File:Bellman–Ford algorithm example.gif" data-caption="File:Bellman–Ford algorithm example.gif" loading="lazy"></p>
 <p><small><del>嗯同样是从维基上扒的，不知道能不能加载ww</del></small></p>
+<p>这张图可能有些令人费解，速速去看这个<a target="_blank" rel="noopener" href="https://visualgo.net/zh/sssp?slide=1-5">在线演示网站</a></p>
 <h4 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h4><p>选定起始节点和目标节点</p>
 <p>创建距离列表，存储起始节点到每个节点的最短距离</p>
 <ul>
@@ -243,6 +247,7 @@
 <li>如果<code>dist[u] + w &lt; dist[v]</code>，则更新<code>dist[v] = dist[u] + w</code> （<code>dist</code>是距离列表），并将v的前驱节点设为<code>u</code></li>
 </ul>
 <p>重复 <code>|V|-1</code> 次（<code>|V|</code>是节点的数量）</p>
+<p>这个操作被称为<em>松弛</em></p>
 <h4 id="检查负权环"><a href="#检查负权环" class="headerlink" title="检查负权环"></a>检查负权环</h4><p>再松弛一次，如果还存在满足<code>dist[u] + w &lt; dist[v]</code>的边，说明存在负权环，无法找到最短路径</p>
 <h4 id="回溯-1"><a href="#回溯-1" class="headerlink" title="回溯"></a>回溯</h4><p>根据前驱节点列表从目标节点回溯到起始节点，得到最短路径</p>
 <h3 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h3><p><em>松弛操作</em>（Relaxation）是许多最短路径算法中的一个关键步骤，它用于更新从起点到某个节点的当前已知最短距离。松弛操作检查一条边，如果通过该边可以找到更短的路径，就更新目标节点的最短距离。</p>
@@ -251,7 +256,8 @@
 <li>计算通过 <code>u</code> 到达 <code>v</code> 的距离，即 <code>d[u] + w(u, v)</code>。</li>
 <li>如果 <code>d[u] + w(u, v) &lt; d[v]</code>，则更新 <code>d[v]</code> 为 <code>d[u] + w(u, v)</code>。</li>
 </ol>
-<p>这种操作的目的是确保每个节点的距离是最短的。</p>
+<p>这种操作能够确保每个节点的距离是最短的。</p>
+<p><a target="_blank" rel="noopener" href="https://visualgo.net/zh/sssp?slide=1-7">动画演示</a></p>
 
     <hr />
 <p><small>- 到底了噢 -</small></p>
@@ -280,7 +286,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1717423858952"></script>
+    <script async src="/js/copy-codeblock.js?v=1717427418755"></script>
   
 
   
@@ -299,7 +305,7 @@
             <button class="mdui-fab catalog" style="overflow:unset;">
                 <i class="nexmoefont icon-i-catalog"></i>
                 <div class="nexmoe-toc">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">离散数学-图的最短路径算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dijkstra-%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">Dijkstra 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.1.2.</span> <span class="toc-text">适用条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.3.</span> <span class="toc-text">内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%96%B5"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">开始喵</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%EF%BC%8C%E7%9B%B4%E5%88%B0-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E4%B8%BA%E7%A9%BA-or-%E5%B7%B2%E6%89%BE%E5%88%B0%E7%9B%AE%E6%A0%87%E8%8A%82%E7%82%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">1.1.3.2.1.</span> <span class="toc-text">循环，直到 (优先队列为空) or (已找到目标节点的最短路径)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E6%BA%AF"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">回溯</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">1.1.4.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bellman-Ford-%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">Bellman-Ford 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E6%9D%A1%E4%BB%B6-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">适用条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C-1"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%A0%E7%9A%84%E8%BE%B9%E6%9C%89%E4%BA%9B%E6%9D%BE%E5%BC%9B"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">你的边有些松弛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E8%B4%9F%E6%9D%83%E7%8E%AF"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">检查负权环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E6%BA%AF-1"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">回溯</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Extension"><span class="toc-number">1.2.4.</span> <span class="toc-text">Extension</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">1.</span> <span class="toc-text">离散数学-图的最短路径</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dijkstra-%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">Dijkstra 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.1.2.</span> <span class="toc-text">适用条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.3.</span> <span class="toc-text">内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E6%BA%AF"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">回溯</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">1.1.4.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bellman-Ford-%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">Bellman-Ford 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E6%9D%A1%E4%BB%B6-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">适用条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C-1"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%A0%E7%9A%84%E8%BE%B9%E6%9C%89%E4%BA%9B%E6%9D%BE%E5%BC%9B"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">你的边有些松弛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E8%B4%9F%E6%9D%83%E7%8E%AF"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">检查负权环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E6%BA%AF-1"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">回溯</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Extension"><span class="toc-number">1.2.4.</span> <span class="toc-text">Extension</span></a></li></ol></li></ol></li></ol>
                 </div>
             </button>
             
